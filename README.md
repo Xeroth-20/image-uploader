@@ -1,3 +1,6 @@
+# Previsualizacion
+![screenshot](https://i.ibb.co/N1QDbY3/c.png)
+
 # ImageUploader
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.3.
