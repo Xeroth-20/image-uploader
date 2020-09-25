@@ -1,4 +1,4 @@
-import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
+import { Component, Input, Output, OnInit, OnChanges, EventEmitter } from '@angular/core';
 
 @Component({
     selector: 'app-upload-progress',
@@ -8,7 +8,7 @@ import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
         {}
     ]
 })
-export class UploadProgressComponent implements OnInit {
+export class UploadProgressComponent implements OnInit, OnChanges {
 
     @Input('progress')
     public progress: number;
@@ -20,8 +20,13 @@ export class UploadProgressComponent implements OnInit {
 
     ngOnInit(): void { }
 
+    ngOnChanges(): void {
+        this.progressbarComplete();
+    }
+
     public progressbarComplete(): void {
-        console.log('event');
-        if (this.progress == 100) this.uploadComplete.emit(true);
+        setTimeout(() => {
+            if (this.progress == 100) this.uploadComplete.emit(true);
+        }, 1000);
     }
 }

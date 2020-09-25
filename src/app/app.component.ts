@@ -40,6 +40,7 @@ export class AppComponent implements OnInit {
                 }
             }
         );
+        console.log(this.fileForm.get('imageUpload').touched);
     }
 
     public fileUpload(): void {

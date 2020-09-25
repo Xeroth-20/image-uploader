@@ -1,6 +1,15 @@
 <div class="upload-success">
-    <span class="upload-success-text text-gray1">
-        Uploaded Successfully!
-    </span>
-    <img [src]="uploadedFile.path" [alt]="uploadedFile.name">
+    <div class="upload-success-header">
+        <figure class="check"></figure>
+        <span class="us-header-text text-gray1">
+            Uploaded Successfully!
+        </span>
+    </div>
+    <div class="img-container">
+        <img [src]="uploadedFile.path" [alt]="uploadedFile.fieldname">
+    </div>
+    <div class="img-link" [class.copied]="copiedLink">
+        <input #linkInput class="link-input" type="text">
+        <button (click)="copyToClipboard()" class="copy-to-clipboard">Copy Link</button>
+    </div>
 </div>

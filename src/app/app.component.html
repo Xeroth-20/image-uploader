@@ -1,8 +1,10 @@
 <div class="root">
     <form *ngIf="!uploading" [formGroup]="fileForm" (ngSubmit)="fileUpload()">
-        <app-image-upload (fileSelected)="submitInput.click()" formControlName="imageUpload"></app-image-upload>
+        <app-image-upload id="image-upload" (fileSelected)="submitInput.click()" formControlName="imageUpload">
+        </app-image-upload>
         <input #submitInput class="submit-input" type="submit">
     </form>
-    <app-upload-progress *ngIf="uploading" (progressbarComplete)="progressbarComplete = $event" [progress]="progress"></app-upload-progress>
+    <app-upload-progress *ngIf="uploading && !progressbarComplete" (progressbarComplete)="progressbarComplete = $event"
+        [progress]="progress"></app-upload-progress>
     <app-upload-success *ngIf="progressbarComplete" [uploadedFile]="uploadedFile"></app-upload-success>
 </div>

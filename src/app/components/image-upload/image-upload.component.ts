@@ -32,6 +32,7 @@ export class ImageUploadComponent implements ControlValueAccessor, OnInit {
     public onFileSelect(fileList: FileList): void {
         this.file = fileList && fileList.item(0);
         this.onChange(this.file);
+        this.onTouch();
         this.fileSelected.emit(true);
     }
 
