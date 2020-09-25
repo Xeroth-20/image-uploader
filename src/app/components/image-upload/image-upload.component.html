@@ -1,0 +1,17 @@
+<div class="image-upload">
+    <div class="image-upload-header">
+        <h1 class="iu-header-title text-gray1">Upload your image</h1>
+        <small class="iu-header-feed text-gray2">File should be jpg, png</small>
+    </div>
+    <div class="image-upload-body">
+        <div appDragDrop (onFileDrop)="onFileSelect($event)" class="iu-body-dnd">
+            <figure class="dnd-image"></figure>
+            <span class="dnd-text text-gray3">Drag & drop your image here</span>
+        </div>
+    </div>
+    <div class="image-upload-input-container">
+        <small class="or text-gray3">Or</small>
+        <label for="file-input" class="btn">Choose a file</label>
+        <input id="file-input" class="file-input" type="file">
+    </div>
+</div>

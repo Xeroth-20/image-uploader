@@ -1,1 +1,174 @@
-/* You can add global styles to this file, and also import other style files */
+div {
+    box-sizing: border-box;
+}
+
+h1 {
+    margin-top: 0;
+}
+
+/* colors */
+$color-list: (
+    'gray1': #4f4f4f,
+    'gray2': #828282,
+    'gray3': #bdbdbd
+);
+
+@each $key, $value in $color-list {
+    .text-#{$key} {
+        color: $value;
+    }
+}
+
+/* root */
+.root {
+    align-items: center;
+    display: flex;
+    font-family: 'Poppins', 'Roboto', 'sans-serif';
+    justify-content: center;
+    padding: 20px 10px;
+    min-height: 100vh;
+    min-width: 350px;
+
+    .submit-input {
+        display: none;
+    }
+}
+
+/* animations */
+.animated {
+    animation-duration: 0.3s;
+}
+
+.fadeIn {
+    animation-name: fadeIn;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* all */
+.image-upload,
+.upload-progress,
+.upload-success {
+    @extend .animated;
+    @extend .fadeIn;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(#000, 10%);
+    padding: 36px 32px;
+    min-width: 350px;
+    max-width: 400px;
+}
+
+/* image-upload */
+.image-upload {
+    display: grid;
+    grid-template-rows: repeat(3, auto);
+
+    .image-upload-header {
+        line-height: 1.5em;
+        text-align: center;
+        margin-bottom: 30px;
+
+        .iu-header-title {
+            font-weight: normal;
+            font-size: 18px;
+            margin-bottom: 16px;
+        }
+
+        .iu-header-feed {
+            font-size: 10px;
+        }
+    }
+
+    .image-upload-body {
+        line-height: 1.5em;
+
+        .iu-body-dnd.dragover {
+            > .dnd-text {
+                @extend .text-gray2;
+            }
+        }
+
+        .iu-body-dnd {
+            align-items: center;
+            background-color: #F6F8FB;
+            border: 2px dashed #97BEF4;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            padding: 35px 0 40px 0;
+
+            > .dnd-image {
+                background-image: url('./assets/svgs/image.svg');
+                background-position: center;
+                background-size: contain;
+                margin: 0;
+                margin-bottom: 38px;
+                width: 115px;
+                height: 90px;
+            }
+
+            > .dnd-text {
+                font-size: 12px;
+                transition: color 0.3s;
+            }
+        }
+    }
+
+    .image-upload-input-container {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        
+        .or {
+            font-size: 12px;
+            padding: 19px 0 22px 0;
+        }
+
+        .btn {
+            background-color: #2F80ED;
+            border-radius: 12px;
+            color: #fff;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+            padding: 0.65em 2.5em;
+
+            &:hover {
+                background-color: lighten(#2F80ED, 10%);
+            }
+        }
+    
+        > .file-input {
+            display: none;
+        } 
+    }
+}
+
+/* upload-progress */
+.upload-progress {
+    .uploading-text {
+        font-size: 18px;
+        line-height: 1.5em;
+    }
+
+    .progressbar {
+        background-color: #F2F2F2;
+        margin-top: 30px;
+
+        .bar {
+            background-color: #2F80ED;
+            border-radius: 12px;
+            transition: width 1s;            
+            height: 6px;
+        }
+    }
+}
+

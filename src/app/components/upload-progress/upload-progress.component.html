@@ -1,0 +1,8 @@
+<div class="upload-progress">
+    <span class="uploading-text text-gray1">
+        Uploading
+    </span>
+    <div class="progressbar">
+        <div (onTransitionEnd)="progressbarComplete()" [style.width]="progress + '%'" class="bar"></div>
+    </div>
+</div>
